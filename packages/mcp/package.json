@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "description": "A read-only MCP server for Robinhood Chain launchpad tokens: read a Pons token and its curve, quote a trade, list its recent trades and recent launches. Runs over stdio or HTTP, holds no key, and has no tool that signs or sends.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robelmit/hoodtoolkit-agents.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/robelmit/hoodtoolkit-agents/tree/main/packages/mcp#readme",
+  "bugs": {
+    "url": "https://github.com/robelmit/hoodtoolkit-agents/issues"
+  },
   "keywords": [
     "robinhood-chain",
     "pons",
