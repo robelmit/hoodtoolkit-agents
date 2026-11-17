@@ -8,8 +8,8 @@
  * Standard output carries protocol messages only; everything else goes to standard error.
  */
 
-import { DEFAULT_STREAM_KEY, FeedState, readRedisStream } from '@hoodtoolkit/bot-core';
-import { ROBINHOOD_CHAIN_ID, ROBINHOOD_PUBLIC_RPC, chainId, createEvmRpc } from '@hoodtoolkit/evm';
+import { DEFAULT_STREAM_KEY, FeedState, readRedisStream } from '@hood-toolkit/bot-core';
+import { ROBINHOOD_CHAIN_ID, ROBINHOOD_PUBLIC_RPC, chainId, createEvmRpc } from '@hood-toolkit/evm';
 import { createMcpServer, serveStdio } from './server';
 
 const say = (message: string): void => void process.stderr.write(`hoodtoolkit-mcp: ${message}\n`);

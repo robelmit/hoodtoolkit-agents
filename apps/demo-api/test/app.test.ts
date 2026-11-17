@@ -1,5 +1,5 @@
-import { ERC20, EvmRpcError, ZERO_ADDRESS, addressWord, uintWord, type EvmRpc } from '@hoodtoolkit/evm';
-import { CURVE, FACTORY, PONS_FACTORY } from '@hoodtoolkit/pons';
+import { ERC20, EvmRpcError, ZERO_ADDRESS, addressWord, uintWord, type EvmRpc } from '@hood-toolkit/evm';
+import { CURVE, FACTORY, PONS_FACTORY } from '@hood-toolkit/pons';
 import { describe, expect, it } from 'vitest';
 import { ROUTES, createApp } from '../src/app';
 import { RateLimiter, TtlCache } from '../src/guards';

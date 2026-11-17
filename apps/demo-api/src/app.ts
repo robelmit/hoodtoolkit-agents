@@ -1,5 +1,5 @@
 /**
- * The demo API: a few read-only routes over the tools of `@hoodtoolkit/mcp`,
+ * The demo API: a few read-only routes over the tools of `@hood-toolkit/mcp`,
  * with a budget per client and a short cache in front of the RPC endpoint.
  *
  * It is a function from a web-standard `Request` to a `Response`, so it is
@@ -9,8 +9,8 @@
  * Nothing here signs, sends or stores anything about a caller.
  */
 
-import { EvmRpcError, EvmRpcUnavailable, type EvmRpc } from '@hoodtoolkit/evm';
-import { DEFAULT_TOOL_LIMITS, InvalidArguments, TOOLS, ToolFailure, checkArguments, createMcpServer, type LaunchSource, type Tool, type ToolContext, type ToolLimits } from '@hoodtoolkit/mcp';
+import { EvmRpcError, EvmRpcUnavailable, type EvmRpc } from '@hood-toolkit/evm';
+import { DEFAULT_TOOL_LIMITS, InvalidArguments, TOOLS, ToolFailure, checkArguments, createMcpServer, type LaunchSource, type Tool, type ToolContext, type ToolLimits } from '@hood-toolkit/mcp';
 import { RateLimiter, TtlCache } from './guards';
 
 export interface AppOptions {

@@ -6,7 +6,7 @@
  * capped, and a list is capped.
  */
 
-import { FILTERED_LOG_SPAN, ZERO_ADDRESS, blockNumber, getLogs, readErc20, type EvmRpc } from '@hoodtoolkit/evm';
+import { FILTERED_LOG_SPAN, ZERO_ADDRESS, blockNumber, getLogs, readErc20, type EvmRpc } from '@hood-toolkit/evm';
 import {
   NotAPonsToken,
   PONS_FACTORY,
@@ -20,10 +20,10 @@ import {
   quote,
   readCurve,
   spotPrice,
-} from '@hoodtoolkit/pons';
+} from '@hood-toolkit/pons';
 import { ADDRESS_PATTERN, UNITS_PATTERN, type ObjectSchema } from './schema';
 
-/** Tokens from a launch feed, when the server was given one. `FeedState` of `@hoodtoolkit/bot-core` fits. */
+/** Tokens from a launch feed, when the server was given one. `FeedState` of `@hood-toolkit/bot-core` fits. */
 export interface LaunchSource {
   latest(limit: number): Promise<readonly unknown[]>;
   trending(limit: number): Promise<readonly unknown[]>;

@@ -1,5 +1,5 @@
 {
-  "name": "@hoodtoolkit/demo-api",
+  "name": "@hood-toolkit/demo-api",
   "version": "0.1.0",
   "private": true,
   "description": "A small, rate-limited, read-only HTTP API over the hoodtoolkit tools for Robinhood Chain: Pons tokens, quotes, trades and launches, any token, and the MCP endpoint.",
@@ -15,14 +15,14 @@
     "clean": "rimraf .turbo"
   },
   "dependencies": {
-    "@hoodtoolkit/bot-core": "^0.1.0",
-    "@hoodtoolkit/evm": "^0.1.0",
-    "@hoodtoolkit/mcp": "workspace:^",
+    "@hood-toolkit/bot-core": "^0.1.0",
+    "@hood-toolkit/evm": "^0.1.0",
+    "@hood-toolkit/mcp": "workspace:^",
     "ioredis": "^6.0.0",
     "tsx": "^4.19.2"
   },
   "devDependencies": {
-    "@hoodtoolkit/pons": "^0.1.0",
+    "@hood-toolkit/pons": "^0.1.0",
     "@types/node": "^22.10.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"

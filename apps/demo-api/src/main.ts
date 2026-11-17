@@ -13,8 +13,8 @@
  *   REDIS_URL         optional: the launch feed's Redis; adds /v1/launches and /v1/trending
  */
 
-import { DEFAULT_STREAM_KEY, FeedState, readRedisStream } from '@hoodtoolkit/bot-core';
-import { ROBINHOOD_CHAIN_ID, ROBINHOOD_PUBLIC_RPC, chainId, createEvmRpc } from '@hoodtoolkit/evm';
+import { DEFAULT_STREAM_KEY, FeedState, readRedisStream } from '@hood-toolkit/bot-core';
+import { ROBINHOOD_CHAIN_ID, ROBINHOOD_PUBLIC_RPC, chainId, createEvmRpc } from '@hood-toolkit/evm';
 import { createServer, type IncomingMessage } from 'node:http';
 import { createApp } from './app';
 

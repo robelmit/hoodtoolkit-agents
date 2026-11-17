@@ -7,7 +7,7 @@ It reads the chain through one RPC endpoint. It holds no key, signs nothing, and
 ## Run it
 
 ```
-pnpm --filter @hoodtoolkit/demo-api start
+pnpm --filter @hood-toolkit/demo-api start
 curl http://127.0.0.1:8787/
 ```
 
@@ -29,7 +29,7 @@ Every answer is JSON: `{ "data": … }` or `{ "error": { "code", "message" } }`.
 | `POST /mcp` | 2 | The same tools over the Model Context Protocol |
 | `GET /health` | — | `{ "ok": true, "feed": … }` |
 
-Each route is one tool of [`@hoodtoolkit/mcp`](../../packages/mcp); the arguments and the answers are the same.
+Each route is one tool of [`@hood-toolkit/mcp`](../../packages/mcp); the arguments and the answers are the same.
 
 ### Errors
 
@@ -69,7 +69,7 @@ A client gets `RATE_PER_MINUTE` points a minute (30 by default), refilled evenly
 ## Tests
 
 ```
-pnpm --filter @hoodtoolkit/demo-api test
+pnpm --filter @hood-toolkit/demo-api test
 ```
 
 13 tests call the app as a function from `Request` to `Response` against a faked chain. The server was also started locally against the public Robinhood Chain endpoint and called with curl: launches, a token, a sell quote, a token Pons did not launch, and the MCP endpoint.

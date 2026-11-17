@@ -11,7 +11,7 @@
  * sends or changes anything.
  */
 
-import { EvmRpcError, EvmRpcUnavailable, ROBINHOOD_PUBLIC_RPC, createEvmRpc, type EvmRpc } from '@hoodtoolkit/evm';
+import { EvmRpcError, EvmRpcUnavailable, ROBINHOOD_PUBLIC_RPC, createEvmRpc, type EvmRpc } from '@hood-toolkit/evm';
 import { createInterface } from 'node:readline';
 import type { Readable, Writable } from 'node:stream';
 import { JsonRpcError, RPC, isNotification, parseMessages, rpcError, rpcResult, type JsonRpcRequest, type JsonRpcResponse } from './jsonrpc';

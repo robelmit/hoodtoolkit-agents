@@ -1,5 +1,5 @@
 {
-  "name": "@hoodtoolkit/mcp",
+  "name": "@hood-toolkit/mcp",
   "version": "0.1.0",
   "description": "A read-only MCP server for Robinhood Chain launchpad tokens: read a Pons token and its curve, quote a trade, list its recent trades and recent launches. Runs over stdio or HTTP, holds no key, and has no tool that signs or sends.",
   "license": "MIT",
@@ -47,9 +47,9 @@
     "clean": "rimraf dist .turbo"
   },
   "dependencies": {
-    "@hoodtoolkit/bot-core": "^0.1.0",
-    "@hoodtoolkit/evm": "^0.1.0",
-    "@hoodtoolkit/pons": "^0.1.0"
+    "@hood-toolkit/bot-core": "^0.1.0",
+    "@hood-toolkit/evm": "^0.1.0",
+    "@hood-toolkit/pons": "^0.1.0"
   },
   "peerDependencies": {
     "ioredis": ">=5"

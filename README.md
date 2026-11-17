@@ -4,7 +4,7 @@ Robinhood Chain launchpad data for AI agents and for apps, from the team behind 
 
 | Piece | What it does |
 |---|---|
-| [`@hoodtoolkit/mcp`](packages/mcp) | A Model Context Protocol server over stdio or HTTP: read a Pons token, quote on its curve, list its trades and recent launches, read any token. No key, and no tool that signs or sends |
+| [`@hood-toolkit/mcp`](packages/mcp) | A Model Context Protocol server over stdio or HTTP: read a Pons token, quote on its curve, list its trades and recent launches, read any token. No key, and no tool that signs or sends |
 | [demo-api](apps/demo-api) | The same tools as plain HTTP routes, with a budget per client and a short cache in front of the RPC endpoint |
 
 ## Principles

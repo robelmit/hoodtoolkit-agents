@@ -1,6 +1,6 @@
 import { PassThrough } from 'node:stream';
-import { ERC20, EvmRpcUnavailable, ZERO_ADDRESS, addressWord, uintWord, type EvmRpc } from '@hoodtoolkit/evm';
-import { CURVE, FACTORY, PONS_FACTORY, PONS_TOPICS, buyMaths, withSlippage } from '@hoodtoolkit/pons';
+import { ERC20, EvmRpcUnavailable, ZERO_ADDRESS, addressWord, uintWord, type EvmRpc } from '@hood-toolkit/evm';
+import { CURVE, FACTORY, PONS_FACTORY, PONS_TOPICS, buyMaths, withSlippage } from '@hood-toolkit/pons';
 import { describe, expect, it } from 'vitest';
 import { InvalidArguments, MAX_BATCH, RPC, TOOLS, checkArguments, createMcpServer, parseMessages, serveStdio, type JsonRpcResponse, type McpServer } from '../src';
 

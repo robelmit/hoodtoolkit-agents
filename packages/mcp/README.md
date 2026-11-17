@@ -1,4 +1,4 @@
-# @hoodtoolkit/mcp
+# @hood-toolkit/mcp
 
 A read-only [Model Context Protocol](https://modelcontextprotocol.io) server for Robinhood Chain launchpad tokens. An AI agent can ask it to read a Pons token and its bonding curve, quote a trade on it, list its recent trades, list recent launches, or read any token.
 
@@ -13,7 +13,7 @@ Add it to your MCP client's configuration (the file and its exact shape depend o
   "mcpServers": {
     "hoodtoolkit": {
       "command": "npx",
-      "args": ["-y", "@hoodtoolkit/mcp"],
+      "args": ["-y", "@hood-toolkit/mcp"],
       "env": { "HOOD_RPC_URL": "https://your-rpc.example" }
     }
   }
@@ -68,7 +68,7 @@ The last two are offered only when the server reads the launch feed: set `REDIS_
 ## Tests
 
 ```
-pnpm --filter @hoodtoolkit/mcp test
+pnpm --filter @hood-toolkit/mcp test
 ```
 
 15 tests cover the protocol, the argument checks, each tool against a faked chain, the call queue, and both transports. The server was also run over stdio against the public Robinhood Chain endpoint, and every tool answered on live data.
