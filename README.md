@@ -6,6 +6,7 @@ Robinhood Chain launchpad data for AI agents and for apps, from the team behind 
 |---|---|
 | [`@hood-toolkit/mcp`](packages/mcp) | A Model Context Protocol server over stdio or HTTP: read a Pons token, quote on its curve, list its trades and recent launches, read any token. No key, and no tool that signs or sends |
 | [demo-api](apps/demo-api) | The same tools as plain HTTP routes, with a budget per client and a short cache in front of the RPC endpoint |
+| [live](apps/live) | hoodtoolkit Live: the toolkit in a browser. Pons launches as they happen, and a token page with its curve, progress, price, an exact quote and recent trades |
 
 ## Principles
 
@@ -32,7 +33,7 @@ pnpm check        # build, typecheck, test, lint
 | [hoodtoolkit-sdk](https://github.com/robelmit/hoodtoolkit-sdk) | The Pons SDK and the shared EVM client |
 | [hoodtoolkit-feed](https://github.com/robelmit/hoodtoolkit-feed) | The launch feed: launches, curve trades and graduations as a stream of events |
 | [hoodtoolkit-bots](https://github.com/robelmit/hoodtoolkit-bots) | Telegram and Discord community bots |
-| **hoodtoolkit-agents** (this one) | A read-only MCP server for AI agents, and an HTTP API |
+| **hoodtoolkit-agents** (this one) | A read-only MCP server for AI agents, an HTTP API, and the live site |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to contribute and [SECURITY.md](SECURITY.md) to report a vulnerability.
 

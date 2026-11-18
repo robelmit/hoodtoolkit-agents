@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource/dm-mono/400.css";
+@import "@fontsource/dm-mono/500.css";
+
+/*
+ * The look: a near-black canvas, #141416 cards with a 1px #2a2a2d border and a solid 2px bottom edge, a soft
+ * green primary with a darker green edge under raised buttons, pill tabs, round icon buttons, tiny uppercase
+ * section labels, DM Sans throughout. Dark only. Values read from the reference dashboard's computed styles.
+ */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'DM Sans Variable', 'DM Sans', ui-rounded, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-shadow: var(--primary-shadow);
+  --color-primary-light: var(--primary-light);
+  --color-primary-text: var(--primary-text);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-shadow: var(--destructive-shadow);
+  --color-border: var(--border);
+  --color-border-shadow: var(--border-shadow);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-gold: var(--gold);
+  --color-gold-bg: var(--gold-bg);
+  --color-streak: var(--streak);
+  --color-streak-bg: var(--streak-bg);
+  --color-zap: var(--zap);
+  --color-zap-bg: var(--zap-bg);
+  --color-momentum: var(--momentum);
+  --color-momentum-bg: var(--momentum-bg);
+  --color-missed: var(--missed);
+  --color-missed-bg: var(--missed-bg);
+  --color-risk: var(--risk);
+  --color-risk-bg: var(--risk-bg);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 28px;
+}
+
+:root {
+  --background: #0a0a0b;
+  --foreground: #ededee;
+  --card: #141416;
+  --card-foreground: #ededee;
+  --popover: #141416;
+  --popover-foreground: #ededee;
+  --primary: hsl(116 41% 60%);
+  --primary-foreground: #0a0a0b;
+  --primary-shadow: hsl(116 36% 42%);
+  --primary-light: hsl(116 16% 14%);
+  --primary-text: hsl(116 36% 72%);
+  --secondary: hsl(116 36% 70%);
+  --secondary-foreground: #0a0a0b;
+  --muted: #1c1c1f;
+  --muted-foreground: #9a9a9d;
+  --accent: #1c1c1f;
+  --accent-foreground: hsl(116 36% 85%);
+  --destructive: #e85a6e;
+  --destructive-shadow: #991e2e;
+  --border: #2a2a2d;
+  --border-shadow: #1f1f22;
+  --input: #1c1c1f;
+  --ring: hsl(116 41% 60%);
+  --radius: 16px;
+  --brand: #57c564;
+  --gold: #fbbf24;
+  --gold-bg: #2a2008;
+  --streak: #f5b366;
+  --streak-bg: #2a1e0e;
+  --zap: #6ec9d4;
+  --zap-bg: #122428;
+  --momentum: #4ade80;
+  --momentum-bg: #0d2414;
+  --missed: #a78bfa;
+  --missed-bg: #1c1230;
+  --risk: #ff6b4a;
+  --risk-bg: #2b130d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: dark;
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}

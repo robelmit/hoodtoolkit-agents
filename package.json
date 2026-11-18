@@ -2,7 +2,7 @@
   "name": "hoodtoolkit-agents",
   "private": true,
   "version": "0.0.0",
-  "description": "A read-only MCP server and a rate-limited HTTP API for Robinhood Chain launchpad tokens: read a Pons token, quote on its curve, list its trades and recent launches.",
+  "description": "A read-only MCP server, a rate-limited HTTP API and a live site for Robinhood Chain launchpad tokens: read a Pons token, quote on its curve, list its trades and recent launches.",
   "license": "MIT",
   "packageManager": "pnpm@11.8.0",
   "engines": {
