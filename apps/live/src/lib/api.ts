@@ -136,7 +136,7 @@ export async function get<T>(path: string, tries = 3): Promise<T> {
 
 export const api = {
   health: () => get<{ ok: boolean; feed: boolean }>('/health', 1),
-  index: () => get<{ name: string; routes: readonly RouteInfo[] }>('/', 1),
+  index: () => get<{ name: string; routes: readonly RouteInfo[] }>('/v1', 1),
   launches: (limit = 30) => get<Launches>(`/v1/pons-launches?limit=${limit}`),
   token: (token: string) => get<PonsToken>(`/v1/pons/${token}`),
   info: (token: string) => get<TokenInfo>(`/v1/tokens/${token}`),

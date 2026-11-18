@@ -138,7 +138,8 @@ export function createApp(options: AppOptions): App {
     const method = request.method.toUpperCase();
 
     if (method === 'OPTIONS') return new Response(null, { status: 204, headers: { ...HEADERS, 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400' } });
-    if (segments.length === 0 && method === 'GET') return answer(200, { data: index }, { 'Cache-Control': 'public, max-age=300' });
+    // The index is also at /v1, so a site served from the same origin as the API can read it.
+    if ((segments.length === 0 || (segments.length === 1 && segments[0] === 'v1')) && method === 'GET') return answer(200, { data: index }, { 'Cache-Control': 'public, max-age=300' });
     if (segments.length === 1 && segments[0] === 'health' && method === 'GET') return answer(200, { data: { ok: true, feed: feed !== null } });
 
     if (segments.length === 1 && segments[0] === 'mcp') {

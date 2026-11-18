@@ -60,6 +60,7 @@ describe('routes', () => {
     const paths = ((await h.json(await h.get('/'))).data!['routes'] as { path: string }[]).map((r) => r.path);
     expect(paths).toEqual(expect.arrayContaining(['/v1/pons/:token', '/v1/pons/:token/quote', '/v1/pons/:token/trades', '/v1/pons-launches', '/v1/tokens/:token', '/mcp']));
     expect(paths).not.toContain('/v1/launches');
+    expect(await h.json(await h.get('/v1'))).toEqual(await h.json(await h.get('/')));
     expect((await h.get('/v1/launches')).status).toBe(404);
     expect(await h.json(await h.get('/health'))).toEqual({ data: { ok: true, feed: false } });
     const withFeed = harness({ feed: true });
