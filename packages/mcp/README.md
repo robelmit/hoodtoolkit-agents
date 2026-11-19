@@ -49,6 +49,19 @@ The last two are offered only when the server reads the launch feed: set `REDIS_
 
 `createMcpServer(options).handleHttp(request)` takes a web-standard `Request` and returns a `Response` (Streamable HTTP, stateless, JSON answers). It has no authentication of its own; use its `limit` hook or put it behind your own. The [demo API](../../apps/demo-api) serves it at `/mcp` with a budget per client.
 
+## As plain functions
+
+The same tools, with the same bounds and argument checks, without the protocol: for a bot or a script of your own.
+
+```ts
+import { createToolRunner } from '@hood-toolkit/mcp';
+
+const tools = createToolRunner({});
+const quote = await tools.run('pons_quote', { token: '0x…', side: 'buy', amountIn: '50000000000000000' });
+```
+
+A tool that could not do the thing throws a `ToolCallError` whose `code` is the one the server would have answered (`NOT_A_PONS_TOKEN`, `INVALID_ARGUMENTS`, `BUSY`, `RPC_ERROR`, …). The hoodtoolkit bots use this for `/quote`.
+
 ## Bounds
 
 | Bound | Default | Option |
@@ -71,7 +84,7 @@ The last two are offered only when the server reads the launch feed: set `REDIS_
 pnpm --filter @hood-toolkit/mcp test
 ```
 
-15 tests cover the protocol, the argument checks, each tool against a faked chain, the call queue, and both transports. The server was also run over stdio against the public Robinhood Chain endpoint, and every tool answered on live data.
+16 tests cover the protocol, the argument checks, each tool against a faked chain, the call queue, both transports, and the tools as plain functions. The server was also run over stdio against the public Robinhood Chain endpoint, and every tool answered on live data.
 
 ## Licence
 

@@ -1,10 +1,11 @@
-import { CodeIcon, GithubLogoIcon, RocketLaunchIcon, ShieldCheckIcon } from '@phosphor-icons/react';
+import { CodeIcon, DiscordLogoIcon, GithubLogoIcon, RocketLaunchIcon, ShieldCheckIcon, TelegramLogoIcon } from '@phosphor-icons/react';
 import { cn } from 'cn';
 import { useEffect, useState } from 'react';
 import { TokenSearch } from '@/components/bits';
 import { Surface, Tag } from '@/components/kit';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { api } from '@/lib/api';
+import { discordInvite, telegramInvite } from '@/lib/bots';
 import { href, useRoute, type Page } from '@/lib/route';
 import { DevelopersPage } from '@/pages/developers';
 import { LaunchesPage } from '@/pages/launches';
@@ -93,10 +94,34 @@ function Intro() {
         <h1 className="text-[30px] leading-[1.1] font-extrabold tracking-[-0.035em] text-balance sm:text-[36px]">Tools for Robinhood Chain launchpads, running live</h1>
         <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">Pons launches as they happen, each token&apos;s bonding curve, progress, price, exact quotes and recent trades. Every number on this site comes from the open-source hoodtoolkit packages, read straight from the chain.</p>
       </div>
-      <div className="w-full lg:max-w-md">
+      <div className="flex w-full flex-col gap-3 lg:max-w-md">
         <TokenSearch />
+        <AddBots />
       </div>
     </Surface>
+  );
+}
+
+/** Add the hosted bots to a group or a server: token cards, buy posts, alerts, calls and quotes there. */
+function AddBots() {
+  if (!telegramInvite && !discordInvite) return null;
+  const pill = 'inline-flex h-8 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-[13px] font-semibold transition-colors hover:bg-muted';
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-[12.5px] text-muted-foreground">Bring the cards to your community:</span>
+      {telegramInvite && (
+        <a href={telegramInvite} target="_blank" rel="noreferrer" className={pill}>
+          <TelegramLogoIcon weight="duotone" className="size-4 text-primary" />
+          Add to Telegram
+        </a>
+      )}
+      {discordInvite && (
+        <a href={discordInvite} target="_blank" rel="noreferrer" className={pill}>
+          <DiscordLogoIcon weight="duotone" className="size-4 text-primary" />
+          Add to Discord
+        </a>
+      )}
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import { ArrowsLeftRightIcon, ChartLineUpIcon, CoinsIcon, GaugeIcon, PercentIcon, ReceiptIcon } from '@phosphor-icons/react';
+import { ArrowsLeftRightIcon, ChartLineUpIcon, CheckIcon, CoinsIcon, GaugeIcon, PercentIcon, ReceiptIcon, ShareNetworkIcon } from '@phosphor-icons/react';
 import { cn } from 'cn';
 import { useState } from 'react';
 import { Address, Empty, Failed, Loading, TokenSearch } from '@/components/bits';
@@ -200,6 +200,7 @@ export function TokenPage({ address }: { address: string | null }) {
               {token.graduated ? <Tag tone="good">Graduated</Tag> : token.readyToGraduate ? <Tag tone="warn">Ready to graduate</Tag> : <Tag tone="primary">On its curve</Tag>}
             </h1>
             <Address value={token.token} link={explorer.token(token.token)} keep={6} />
+            <ShareButton address={token.token} name={token.symbol ? `$${token.symbol}` : (token.name ?? 'A Pons token')} />
           </div>
         </div>
         <div className="w-full lg:max-w-md">
@@ -250,5 +251,21 @@ export function TokenPage({ address }: { address: string | null }) {
 
       <TradesPanel token={token} />
     </div>
+  );
+}
+
+/** Copies a line with the token's page link, ready to paste into a chat. */
+function ShareButton({ address, name }: { address: string; name: string }) {
+  const [copied, setCopied] = useState(false);
+  const line = `${name} on hoodtoolkit Live: curve, quote and trades ${window.location.origin}/#/token/${address}`;
+  return (
+    <button
+      type="button"
+      onClick={() => void navigator.clipboard?.writeText(line).then(() => (setCopied(true), setTimeout(() => setCopied(false), 2_000)))}
+      className="mt-2 inline-flex h-8 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-[13px] font-semibold transition-colors hover:bg-muted"
+    >
+      {copied ? <CheckIcon weight="bold" className="size-4" /> : <ShareNetworkIcon weight="duotone" className="size-4 text-primary" />}
+      {copied ? 'Copied' : 'Share'}
+    </button>
   );
 }

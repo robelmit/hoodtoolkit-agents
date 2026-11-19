@@ -2,7 +2,7 @@ import { PassThrough } from 'node:stream';
 import { ERC20, EvmRpcUnavailable, ZERO_ADDRESS, addressWord, uintWord, type EvmRpc } from '@hood-toolkit/evm';
 import { CURVE, FACTORY, PONS_FACTORY, PONS_TOPICS, buyMaths, withSlippage } from '@hood-toolkit/pons';
 import { describe, expect, it } from 'vitest';
-import { InvalidArguments, MAX_BATCH, RPC, TOOLS, checkArguments, createMcpServer, parseMessages, serveStdio, type JsonRpcResponse, type McpServer } from '../src';
+import { InvalidArguments, MAX_BATCH, RPC, TOOLS, ToolCallError, checkArguments, createMcpServer, createToolRunner, parseMessages, serveStdio, type JsonRpcResponse, type McpServer } from '../src';
 
 const TOKEN = '0x97720cc1daa1ffbfa9d68f3081b2389c5dd9d67d';
 const CURVE_ADDRESS = '0xa7efed30692a65c90bf6867af123f335b3214c1a';
@@ -275,5 +275,15 @@ describe('transports', () => {
     expect(lines).toHaveLength(3);
     expect(lines.find((l) => l.id === null)!.error).toMatchObject({ code: RPC.PARSE_ERROR });
     expect((lines.find((l) => l.id === 2)!.result as Result).structuredContent).toMatchObject({ symbol: 'USDG' });
+  });
+});
+
+describe('createToolRunner', () => {
+  it('offers the tools as plain functions, and throws the code the server would have answered', async () => {
+    const runner = createToolRunner({ rpc: { call: async () => null } as never });
+    expect(runner.tools).toContain('pons_quote');
+    expect(runner.tools).not.toContain('latest_launches');
+    await expect(runner.run('pons_quote', { token: 'nope', side: 'buy', amountIn: '1' })).rejects.toMatchObject({ code: 'INVALID_ARGUMENTS' });
+    await expect(runner.run('nope', {})).rejects.toBeInstanceOf(ToolCallError);
   });
 });
